@@ -79,7 +79,7 @@ export default function useApplicationData() {
   // New Appointments being booked trigger this function
   const bookInterview = (id, interview) => {
     return axios
-      .put(`http://localhost:3001/api/appointments/${id}`, {
+      .put(`/api/appointments/${id}`, {
         interview: interview
       })
       .then(() => {
@@ -92,7 +92,7 @@ export default function useApplicationData() {
   // Existing Appointments being deleted triggers this function
   const deleteInterview = (id) => {
     return axios
-      .delete(`http://localhost:3001/api/appointments/${id}`)
+      .delete(`https://student-scheduler.herokuapp.com/api/appointments/${id}`)
       .then(() => {
         setInterview(id, null);
       })
