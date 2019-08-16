@@ -65,9 +65,9 @@ export default function useApplicationData() {
 
   useEffect(() => {
     Promise.all([
-      axios.get(`http://localhost:3001/api/days`),
-      axios.get(`http://localhost:3001/api/appointments`),
-      axios.get('http://localhost:3001/api/interviewers')
+      axios.get(`https://student-scheduler.herokuapp.com/api/days`),
+      axios.get(`https://student-scheduler.herokuapp.com/api/appointments`),
+      axios.get('https://student-scheduler.herokuapp.com/api/interviewers')
     ])
       .then((res) => {
         setApplicationData(res[0].data, res[1].data, res[2].data);
