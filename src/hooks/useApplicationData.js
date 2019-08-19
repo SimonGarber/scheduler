@@ -65,9 +65,9 @@ export default function useApplicationData() {
 
   useEffect(() => {
     Promise.all([
-      axios.get(`https://student-scheduler.herokuapp.com/api/days`),
-      axios.get(`https://student-scheduler.herokuapp.com/api/appointments`),
-      axios.get('https://student-scheduler.herokuapp.com/api/interviewers')
+      axios.get('/api/days'),
+      axios.get('/api/appointments'),
+      axios.get('/api/interviewers')
     ])
       .then((res) => {
         setApplicationData(res[0].data, res[1].data, res[2].data);
@@ -92,7 +92,7 @@ export default function useApplicationData() {
   // Existing Appointments being deleted triggers this function
   const deleteInterview = (id) => {
     return axios
-      .delete(`https://student-scheduler.herokuapp.com/api/appointments/${id}`)
+      .delete(`/api/appointments/${id}`)
       .then(() => {
         setInterview(id, null);
       })
